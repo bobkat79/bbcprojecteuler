@@ -1,6 +1,5 @@
 package projecteuler
 
-import "fmt"
 import "errors"
 
 func FibSums(limit int64, filter string) (res int64, err error) {

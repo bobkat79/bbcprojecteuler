@@ -11,7 +11,7 @@ func TestFibSums(t *testing.T) {
 		{"even", 100, 44},
 		{"odd", 100, 187},
 		{"", 100, 231},
-		{"even", 4000000, 16},
+		{"even", 4000000, 4613732},
 	}
 	for pos, table := range tables {
 		res, err := FibSums(table.limit, table.filter)

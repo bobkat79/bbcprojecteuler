@@ -1,21 +1,5 @@
 package projecteuler
 
-func isprime(p int) bool {
-	if p == 2 || p == 3 {
-		return true
-	}
-	if p%2 == 0 || p%3 == 0 {
-		// anything divisable by 2 or 3 is not prime
-		return false
-	}
-	for i := 5; i*i <= p; i += 6 {
-		if p%i == 0 || p%(i+2) == 0 {
-			return false
-		}
-	}
-	return true
-}
-
 func LargestPrimeFactor(n int) int {
 	// Take a number and return the largest prime factor.
 
@@ -33,12 +17,12 @@ func LargestPrimeFactor(n int) int {
 			}
 		}
 		// we still have a remainder and we've gone through all the primes up to 600.  Now we have to use brute force.
-		if isprime(rem) {
+		if IsPrime(rem) {
 			primefactors = append(primefactors, rem)
 			break
 		}
 		for i := 600; i < rem; i++ {
-			if !isprime(i) {
+			if !IsPrime(i) {
 				// skip non-primes
 				continue
 			}
