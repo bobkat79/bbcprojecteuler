@@ -42,7 +42,7 @@ func TestLargestProductinGrid(t *testing.T) {
 		20: []int{1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48},
 	}
 	for _, table := range tables {
-		res := LargestProductinGrid(table.adj, bgrid)
+		res, _, _ := LargestProductinGrid(table.adj, bgrid)
 		if res != table.expres {
 			t.Errorf("test failed for adjacency %d, expected %d but got %d.\n", table.adj, table.expres, res)
 		}

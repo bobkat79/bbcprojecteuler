@@ -1,25 +1,23 @@
 package projecteuler
 
-import "fmt"
-
-func LargestProductinGrid(adjc int, g map[int][]int) int {
-	// Find the largest product from an adjaceny in a grid.
+func LargestProductinGrid(adjc int, g map[int][]int) (maxproduct int, maxset []int, orient string) {
+	// Find the largest product from an adjaceny in a grid along with information.
 	// The grid is passed in through g as a map where each entry is a row and each position in the slice is column.
 	// This expects a grid so check the input grid to ensure it's actually a grid.
 	gridrows := len(g)
 	var accum int
-	var maxproduct int
-	var orient string
-	maxset := make([]int, adjc)
+	// var maxproduct int
+	// var orient string
+	// maxset := make([]int, adjc)
 	for _, row := range g {
 		if len(row) != gridrows {
 			// grid malformed
-			return 0
+			return 0, maxset, orient
 		}
 	}
 	if adjc > gridrows {
 		// You can't have more adjacencies than the size of the grid.
-		return 0
+		return 0, maxset, orient
 	}
 	for rpos, row := range g {
 		for cpos, _ := range row {
@@ -79,7 +77,5 @@ func LargestProductinGrid(adjc int, g map[int][]int) int {
 			}
 		}
 	}
-
-	fmt.Printf("Found set %v in orientation %s.\n", maxset, orient)
-	return maxproduct
+	return maxproduct, maxset, orient
 }
