@@ -28,7 +28,7 @@ func TestMostCollatzSteps(t *testing.T) {
 	}{
 		{10, 9},
 		{1000, 871},
-		{1000000, 231},
+		{1000000, 837799},
 	}
 	for _, table := range tables {
 		res, steps := MostCollatzSteps(table.limit)
