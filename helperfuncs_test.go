@@ -136,3 +136,22 @@ func TestLargePlus(t *testing.T) {
 		}
 	}
 }
+
+func TestCollatzStep(t *testing.T) {
+	tables := []struct {
+		num    int
+		expres int
+	}{
+		{13, 40},
+		{5, 16},
+		{100, 50},
+		{1567312, 783656},
+		{1567311, 4701934},
+	}
+	for pos, table := range tables {
+		res := CollatzStep(table.num)
+		if res != table.expres {
+			t.Errorf("Failed test %d of CollatzStep, expected %d, got %d.\n", pos, table.expres, res)
+		}
+	}
+}

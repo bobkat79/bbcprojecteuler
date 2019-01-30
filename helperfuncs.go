@@ -124,3 +124,11 @@ func LargePlus(lsnum string, rsnum string) string {
 	}
 	return ret
 }
+
+func CollatzStep(num int) int {
+	// Take a number and return the next Collatz step.
+	if num%2 == 0 {
+		return (num / 2)
+	}
+	return ((num * 3) + 1)
+}
