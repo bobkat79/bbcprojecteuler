@@ -20,7 +20,7 @@ func LargestProductinGrid(adjc int, g map[int][]int) (maxproduct int, maxset []i
 		return 0, maxset, orient
 	}
 	for rpos, row := range g {
-		for cpos, _ := range row {
+		for cpos := range row {
 			tempset := make([]int, adjc)
 			// check horizontal left to right
 			if (cpos + adjc) <= len(row) {
